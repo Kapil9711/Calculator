@@ -23,3 +23,8 @@ html, body {
   justify-content: center;
   align-items: center;
 }
+
+.input-box input {
+  font-size: 3rem;
+  color: white !important;
+}
