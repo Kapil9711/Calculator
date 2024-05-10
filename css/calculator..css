@@ -8,8 +8,6 @@ html, body {
   padding: 0;
 }
 
-@media (min-width: 776px) {
-  .calculator-container {
-    width: 500px;
-  }
+.calculator-container {
+  max-width: 400px;
 }
