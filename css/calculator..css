@@ -10,7 +10,12 @@ html, body {
 
 .calculator-container {
   max-width: 380px;
-  height: min(90%, 670px);
+  height: 100%;
+}
+@media (min-width: 556px) {
+  .calculator-container {
+    height: min(90%, 650px);
+  }
 }
 
 .row button {
