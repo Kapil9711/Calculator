@@ -5,13 +5,16 @@
   "main": "index.js",
   "scripts": {
     "sass:build": "sass --no-source-map scss:css",
-    "sass:watch": "sass --no-source-map --watch scss:css"
+    "sass:watch": "sass --no-source-map --watch scss:css",
+    "publish": "con"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^5.3.3",
+    "concurrently": "^8.2.2",
+    "gh-pages": "^6.1.1",
     "sass": "^1.77.0"
   }
 }
