@@ -32,6 +32,13 @@ const handleResult = () => {
     .split(" ")
     .map((ele) => (Number(ele) ? Number(ele) : ele));
   let result;
+
+  let indexofPov = inputArr.indexOf("^");
+  if (indexofPov !== -1) {
+    result = Math.pow(inputArr[indexofPov - 1], inputArr[indexofPov + 1]);
+    inputArr.splice(indexofPov - 1, 3, result);
+  }
+
   let indexofDiv = inputArr.indexOf("/");
   if (indexofDiv !== -1) {
     result = inputArr[indexofDiv - 1] / inputArr[indexofDiv + 1];
@@ -63,6 +70,7 @@ const handleResult = () => {
   btn.addEventListener("click", function () {
     const innerText = this.innerText;
     if (innerText === "Ac" || innerText === "X") return handleClear(innerText);
+    if (innerText === "Sq") return handleResult();
     if (innerText === "=") return handleResult();
     handleInput(innerText);
   });
