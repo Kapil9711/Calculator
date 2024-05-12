@@ -5,12 +5,22 @@ const input = document.querySelector("input");
 
 const validateInput = (value) => {
   const inputValue = input.value;
-  if (!inputValue.length) return !!Number(value);
-  if (!Number(inputValue[inputValue.length - 1])) return !!Number(value);
+  if (!inputValue.length) return value === "." || !!Number(value);
+  if (!Number(inputValue[inputValue.length - 1]) && value != ".")
+    return !!Number(value);
+  if (value === ".")
+    return !inputValue
+      .split(" ")
+      [inputValue.split(" ").length - 1].includes(".");
+
   return true;
 };
 const handleInput = (innerText) => {
-  const value = innerText;
+  let value = innerText;
+  if (!Number(innerText) && !(innerText === ".")) {
+    console.log("h");
+    value = " " + value + " ";
+  }
   validateInput(value) ? (input.value += value) : "";
 };
 
