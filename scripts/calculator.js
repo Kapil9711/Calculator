@@ -9,25 +9,38 @@ const validateInput = (value) => {
   if (!Number(inputValue[inputValue.length - 1])) return !!Number(value);
   return true;
 };
-const handleInput = (self) => {
-  const value = self.innerText;
+const handleInput = (innerText) => {
+  const value = innerText;
   validateInput(value) ? (input.value += value) : "";
 };
 
-numbers.forEach((n) => {
-  n.addEventListener("click", function () {
-    handleInput(this);
+const handleClear = (innerText) => {
+  if (innerText === "Ac") return (input.value = "");
+  input.value = input.value.slice(0, input.value.length - 1);
+};
+
+[...numbers, ...mathOperation, ...operations].forEach((btn) => {
+  btn.addEventListener("click", function () {
+    const innerText = this.innerText;
+    if (innerText === "Ac" || innerText === "X") return handleClear(innerText);
+    handleInput(innerText);
   });
 });
 
-mathOperation.forEach((op) => {
-  op.addEventListener("click", function () {
-    handleInput(this);
-  });
-});
+// numbers.forEach((n) => {
+//   n.addEventListener("click", function () {
+//     handleInput(this);
+//   });
+// });
 
-operations.forEach((op) => {
-  op.addEventListener("click", function () {
-    handleInput(this);
-  });
-});
+// mathOperation.forEach((op) => {
+//   op.addEventListener("click", function () {
+//     handleInput(this);
+//   });
+// });
+
+// operations.forEach((op) => {
+//   op.addEventListener("click", function () {
+//     handleInput(this);
+//   });
+// });
